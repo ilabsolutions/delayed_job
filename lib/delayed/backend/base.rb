@@ -114,7 +114,7 @@ module Delayed
             hook :success
           rescue Exception => e
             hook :error, e
-            raise e
+            raise e, "Problem with job #{handler}"
           ensure
             hook :after
           end
